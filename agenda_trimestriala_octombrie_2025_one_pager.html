@@ -4,126 +4,170 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Agenda Trimestrială Kilostop — Octombrie 2025</title>
+  <!-- Fonturi brand -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#ffffff;--muted:#6b7280;--accent:#0f766e;--accent-2:#10b981;--card:#f8fafc;--shadow:rgba(2,6,23,0.08)}
-    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:linear-gradient(180deg,#fbfdff 0%,var(--bg) 100%);color:#0f172a}
+    :root{
+      /* Culori brand */
+      --rose:#ff5a81; --orange:#ff531a; --turq:#26b583; --blue:#3B89ED; --red:#D62F57;
+      --text:#071911; --muted:#778c85; --bg:#ffffff; --card:#f8fafc; --shadow:rgba(2,6,23,0.06);
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; margin:0; color:var(--text); background:linear-gradient(180deg,#fbfefe 0%, var(--bg) 100%)}
     .wrapper{max-width:1100px;margin:28px auto;padding:28px}
-    .header{display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    h1{margin:0;font-size:20px}
+
+    /* Header */
+    .header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:auto;height:auto;display:block;background:transparent;border:none;border-radius:0;overflow:visible}
+    .logo img{width:96px;height:96px;object-fit:contain;display:block}
+    h1{margin:0;font-family:'Libre Baskerville',serif;font-weight:700;font-size:28px;line-height:1.2}
     .meta{color:var(--muted);font-size:13px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
-    .col{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px var(--shadow)}
-    .three-steps{display:flex;gap:12px;align-items:flex-start}
-    .step{flex:1;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbffff);border:1px solid rgba(15,118,110,0.06)}
-    .step h3{margin:0 0 8px 0;font-size:14px;color:var(--accent)}
-    .step ul{margin:0;padding-left:18px;color:#0b1220;font-size:13px}
-    .rai{margin-top:12px;padding:12px;border-radius:10px;border:1px dashed rgba(15,118,110,0.12)}
-    .rai h4{margin:0 0 8px 0;color:var(--accent)}
+
+    /* Layout */
+    .grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:22px;margin-top:24px}
+    .col{background:var(--card);padding:18px 18px;border-radius:14px;box-shadow:0 8px 22px var(--shadow);border:1px solid rgba(7,25,17,0.05)}
+    .col>strong{font-family:'Libre Baskerville',serif;font-size:16px}
+
+    /* Steppers */
+    .three-steps{display:flex;gap:12px;align-items:stretch;margin-top:12px}
+    .step{flex:1;padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff, #fbfffd);border:1px solid rgba(38,181,131,0.15)}
+    .step h3{margin:0 0 8px 0;font-size:15px;color:var(--turq);font-family:'Libre Baskerville',serif}
+    .step ul{margin:0;padding-left:18px;font-size:13.5px}
+    .step li{margin:5px 0}
+
+    /* RAI card */
+    .rai{margin-top:14px;padding:12px;border-radius:12px;border:1px dashed rgba(7,25,17,0.18);background:#fff}
+    .rai h4{margin:0 0 8px 0;color:var(--turq);font-family:'Libre Baskerville',serif;font-size:15px}
+    .rai .muted{color:var(--muted)}
+
+    /* Deliverables */
     .deliverables{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
-    .chip{background:white;padding:10px;border-radius:8px;border:1px solid rgba(2,6,23,0.04);font-size:13px}
-    .footer{margin-top:18px;display:flex;justify-content:space-between;align-items:center}
-    .actions{display:flex;gap:8px}
-    .btn{padding:10px 14px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:13px}
-    .muted{color:var(--muted);font-size:13px}
-    @media (max-width:800px){.grid{grid-template-columns:1fr}.deliverables{grid-template-columns:1fr}}
+    .chip{background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(7,25,17,0.06);font-size:13px}
+    .chip strong{display:block;margin-bottom:4px}
+
+    /* Lists */
+    .list{margin-top:10px}
+    .list li{margin:6px 0}
+
+    /* Buttons */
+    .footer{margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .actions{display:flex;gap:10px;align-items:center}
+    .btn{padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--rose),var(--orange));color:white;text-decoration:none;font-weight:700;font-size:13.5px;box-shadow:0 6px 16px rgba(255,90,129,0.25);border:0;cursor:pointer}
+    .btn:active{transform:translateY(1px)}
+    .hint{color:var(--muted);font-size:12.5px}
+
+    /* Accent bars */
+    .accent{height:8px;border-radius:8px;background:var(--turq);margin:14px 0 6px 0;opacity:.9}
+
+    /* Print styles */
+    @media print{
+      body{background:#fff}
+      .col{box-shadow:none;border:1px solid #eaeaea}
+      .footer,.actions{display:none !important}
+      .wrapper{padding:0;margin:0}
+      a{text-decoration:none;color:inherit}
+    }
+    @media (max-width:860px){
+      .grid{grid-template-columns:1fr}
+      h1{font-size:24px}
+    }
   </style>
 </head>
 <body>
-  <div class="wrapper">
+  <div class="wrapper" id="capture-root">
     <div class="header">
       <div class="brand">
-        <div class="logo">KS</div>
+        <div class="logo"><img alt="Kilostop Logo" src="https://kilostop.ro/wp-content/uploads/2020/04/Screenshot-2020-04-16-at-10.53.34.png" /></div>
         <div>
           <h1>Agenda Trimestrială — Octombrie 2025</h1>
-          <div class="meta">Scop: aliniere ritm comun • RAI • Inițiative T4 • Data întâlnirii: Octombrie 2025</div>
+          <div class="meta">Scop: aliniere ritm comun • RAI • Inițiative T4 • Data: Octombrie 2025</div>
         </div>
       </div>
-      <div class="meta">Creator: Cristi &amp; Gina • Pregătit pentru: Raluca</div>
+      <div class="meta">Creator: Cristi &amp; Gina • Pentru: Raluca</div>
     </div>
+
+    <div class="accent"></div>
 
     <div class="grid">
       <div class="col">
-        <strong>Structură 3 timpi (pe scurt)</strong>
-        <div class="three-steps" style="margin-top:12px">
+        <strong>Structură în 3 timpi</strong>
+        <div class="three-steps">
           <div class="step">
             <h3>🕐 Timpul 1 — Review</h3>
             <ul>
-              <li>Raport scurt departamental (3 min/echipă)</li>
+              <li>Raport scurt / departament (3 min/echipă)</li>
               <li>Validare acțiuni lunare & eficiență</li>
-              <li>Identificare provocări și oportunități</li>
+              <li>Provocări & oportunități actuale</li>
             </ul>
           </div>
           <div class="step">
             <h3>🕑 Timpul 2 — Aliniere strategică</h3>
             <ul>
-              <li>Prezentare one-pagere: rezultate cheie 2025</li>
+              <li>One‑pagere: rezultate cheie 2025</li>
               <li>Direcție 2026–2028 & identitate Kilostop</li>
-              <li>Discuție obstacole / oportunități</li>
+              <li>Clarificare: obstacole / oportunități</li>
             </ul>
           </div>
           <div class="step">
             <h3>🕒 Timpul 3 — Inițiative T4</h3>
             <ul>
-              <li>Definire proiecte: defensive / offensive / prepare</li>
-              <li>Clarificare responsabilități (cine-ce-până când)</li>
-              <li>Prioritizare transversala</li>
+              <li>Proiecte: defensive / offensive / prepare</li>
+              <li>Responsabili & termene (cine–ce–când)</li>
+              <li>Prioritizare transversală (2–3 focus)</li>
             </ul>
           </div>
         </div>
 
         <div class="rai">
           <h4>🧭 RAI — Limbaj comun</h4>
-          <div class="muted">R = Responsabilități • A = Acțiuni de management • I = Inițiative strategice</div>
-          <div style="margin-top:8px;font-size:13px">Obiective cheie (rezultate) în one-pagere → cu aceste rezultate în față se aleg inițiativele (proiecte) care le susțin.</div>
+          <div class="muted">R = Responsabilități • A = Acțiuni de management • I = Inițiative strategice (proiecte)</div>
+          <div style="margin-top:8px;font-size:13.5px">Obiective/rezultate cheie în one‑pagere → alegem inițiativele care le susțin direct.</div>
         </div>
       </div>
 
       <div class="col">
-        <strong>Livrabile & instrucțiuni pregătire (pentru Raluca & echipă)</strong>
+        <strong>Livrabile & pregătire (Raluca & echipă)</strong>
         <div class="deliverables">
           <div class="chip">
-            <strong>One-pager: Rezultate 2025</strong>
-            <div class="muted">Cifră de afaceri, profit (sau cash KPI), KPI operaționali</div>
+            <strong>One‑pager: Rezultate 2025</strong>
+            <div class="meta">Cifră de afaceri, profit/cash KPI, operaționali</div>
           </div>
           <div class="chip">
-            <strong>One-pager: Direcție 2026–2028</strong>
-            <div class="muted">Viziune, misiune, priorități strategice</div>
+            <strong>One‑pager: Direcție 2026–2028</strong>
+            <div class="meta">Viziune, misiune, priorități strategice</div>
           </div>
           <div class="chip">
-            <strong>One-pager: Identitate Kilostop</strong>
-            <div class="muted">Cine suntem, ce facem, ce promitem clienților</div>
+            <strong>One‑pager: Identitate Kilostop</strong>
+            <div class="meta">Cine suntem • Promisiune • Diferențiatori</div>
           </div>
           <div class="chip">
-            <strong>Lista proiecte T4 (scurtă)</strong>
-            <div class="muted">Titlu proiect • Impact • Owner • Deadline</div>
+            <strong>Listă proiecte T4 (scurtă)</strong>
+            <div class="meta">Titlu • Impact • Owner • Deadline</div>
           </div>
         </div>
 
-        <div style="margin-top:14px">
-          <strong>Reguli de facilitation</strong>
-          <ul style="margin-top:8px;padding-left:18px;font-size:13px">
-            <li>Trimite one-pagerele cu 48h înainte</li>
-            <li>Timp per prezentare: max 3–5 min + Q&A</li>
-            <li>Moderator: păstrează focusul pe cele 3 timpi</li>
-            <li>Prioritizează 2–3 inițiative T4 (focus)</li>
+        <div class="list">
+          <strong>Reguli de facilitare</strong>
+          <ul style="margin-top:6px;padding-left:18px;font-size:13.5px">
+            <li>Trimite one‑pagerele cu 48h înainte</li>
+            <li>3–5 min per prezentare + Q&A țintit</li>
+            <li>Moderator: menține focusul pe cei 3 timpi</li>
+            <li>Se aleg 2–3 inițiative T4 cu impact major</li>
           </ul>
         </div>
 
-        <div style="margin-top:12px">
-          <strong>Mesaj cheie pentru echipă</strong>
-          <div style="margin-top:6px">"Ne asumăm împreună direcția Kilostop — nu e doar Cristi. Vrem ownership, claritate și rezultate vizibile în T4"</div>
+        <div style="margin-top:10px">
+          <strong>Mesaj cheie</strong>
+          <div style="margin-top:6px;font-size:13.5px">„Construim împreună direcția Kilostop. Ownership, claritate, rezultate vizibile în T4.”</div>
         </div>
-
       </div>
     </div>
 
     <div class="footer">
-      <div class="muted">Următorii pași: 1) Trimite one-pagerele • 2) Confirmă agenda cu Raluca (întâlnirea 13:00) • 3) Gina prezintă RAI (15 min)</div>
+      <div class="hint">Următorii pași: 1) Trimite one‑pagere • 2) Confirmă agenda (întâlnirea 13:00) • 3) Gina prezintă RAI (15 min)</div>
       <div class="actions">
-        <a class="btn" href="#">Descarcă slide (PNG/PDF)</a>
-        <a class="btn" style="background:var(--accent-2)" href="#">Cere modificări</a>
+        <button class="btn" onclick="window.print()">Descarcă PDF</button>
       </div>
     </div>
   </div>
