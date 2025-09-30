@@ -29,22 +29,44 @@
     .col{background:var(--card);padding:18px 18px;border-radius:14px;box-shadow:0 8px 22px var(--shadow);border:1px solid rgba(7,25,17,0.05)}
     .col>strong{font-family:'Libre Baskerville',serif;font-size:16px}
 
-    /* Steppers */
-    .three-steps{display:flex;gap:12px;align-items:stretch;margin-top:12px}
-    .step{flex:1;padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff, #fbfffd);border:1px solid rgba(38,181,131,0.15)}
-    .step h3{margin:0 0 8px 0;font-size:15px;color:var(--turq);font-family:'Libre Baskerville',serif}
-    .step ul{margin:0;padding-left:18px;font-size:13.5px}
-    .step li{margin:5px 0}
+    /* Day Cards */
+    .day-card{margin-top:14px;padding:16px;border-radius:14px;background:linear-gradient(135deg,#fff, #f8fcfb);border:2px solid rgba(38,181,131,0.2);box-shadow:0 6px 18px var(--shadow)}
+    .day-card.day2{border-color:rgba(59,137,237,0.2);background:linear-gradient(135deg,#fff, #f8fafe)}
+    .day-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(7,25,17,0.08)}
+    .day-header h2{margin:0;font-family:'Libre Baskerville',serif;font-size:19px;color:var(--turq)}
+    .day-card.day2 .day-header h2{color:var(--blue)}
+
+    /* Timeline blocks */
+    .time-block{margin:12px 0;padding:12px;border-radius:10px;background:#fff;border-left:4px solid var(--turq)}
+    .day2 .time-block{border-left-color:var(--blue)}
+    .time-block h3{margin:0 0 8px 0;font-size:15px;font-family:'Libre Baskerville',serif;color:var(--text)}
+    .time-block ul{margin:4px 0;padding-left:20px;font-size:13.5px}
+    .time-block li{margin:5px 0}
+
+    /* Speaker cards */
+    .speakers{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+    .speaker-card{padding:10px;background:linear-gradient(135deg,#fffbfc,#fff);border-radius:8px;border:1px solid rgba(214,47,87,0.12)}
+    .speaker-card strong{color:var(--red);font-size:14px}
+    .speaker-card .meta{font-size:12px;margin-top:4px}
+
+    /* Provocări badges */
+    .provocari{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+    .badge{padding:6px 12px;border-radius:6px;font-size:12.5px;font-weight:600}
+    .badge.blocaj{background:#fff5f7;color:var(--red);border:1px solid rgba(214,47,87,0.2)}
+    .badge.oportun{background:#f0fdf7;color:var(--turq);border:1px solid rgba(38,181,131,0.2)}
 
     /* RAI card */
     .rai{margin-top:14px;padding:12px;border-radius:12px;border:1px dashed rgba(7,25,17,0.18);background:#fff}
     .rai h4{margin:0 0 8px 0;color:var(--turq);font-family:'Libre Baskerville',serif;font-size:15px}
     .rai .muted{color:var(--muted)}
 
-    /* Deliverables */
-    .deliverables{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
-    .chip{background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(7,25,17,0.06);font-size:13px}
-    .chip strong{display:block;margin-bottom:4px}
+    /* Email box */
+    .email-box{margin-top:14px;padding:14px;border-radius:12px;background:linear-gradient(135deg,#fffbf8,#fff);border:2px dashed rgba(255,83,26,0.3);box-shadow:0 4px 12px rgba(255,90,129,0.08)}
+    .email-box h4{margin:0 0 10px 0;color:var(--orange);font-family:'Libre Baskerville',serif;font-size:15px}
+    .email-box p{margin:8px 0;font-size:13px;line-height:1.5}
+    .email-box strong{color:var(--text)}
+    .email-box ul{margin:6px 0;padding-left:20px;font-size:13px}
+    .email-box li{margin:4px 0}
 
     /* Lists */
     .list{margin-top:10px}
@@ -81,7 +103,7 @@
         <div class="logo"><img alt="Kilostop Logo" src="https://kilostop.ro/wp-content/uploads/2020/04/Screenshot-2020-04-16-at-10.53.34.png" /></div>
         <div>
           <h1>Agenda Trimestrială — Octombrie 2025</h1>
-          <div class="meta">Scop: aliniere ritm comun • RAI • Inițiative T4 • Data: Octombrie 2025</div>
+          <div class="meta">2 zile • Viziune & Aliniere • Dezvoltare competențe • Proiecte T4 • Octombrie 2025</div>
         </div>
       </div>
       <div class="meta">Creator: Cristi &amp; Gina • Pentru: Raluca</div>
@@ -91,9 +113,23 @@
 
     <div class="grid">
       <div class="col">
-        <strong>Structură în 3 timpi</strong>
-        <div class="three-steps">
-          <div class="step">
+        <strong>Structură detaliată 2 zile</strong>
+
+        <!-- DAY 1 -->
+        <div class="day-card">
+          <div class="day-header">
+            <h2>📅 Ziua 1</h2>
+          </div>
+
+          <div class="time-block">
+            <h3>Introducere — Raluca</h3>
+            <ul>
+              <li>Welcome & context-setting</li>
+              <li>Obiectivele celor 2 zile</li>
+            </ul>
+          </div>
+
+          <div class="time-block">
             <h3>🕐 Timpul 1 — Review</h3>
             <ul>
               <li>Raport scurt / departament (3 min/echipă)</li>
@@ -101,25 +137,71 @@
               <li>Provocări & oportunități actuale</li>
             </ul>
           </div>
-          <div class="step">
-            <h3>🕑 Timpul 2 — Aliniere strategică</h3>
+
+          <div class="time-block">
+            <h3>🕑 Timpul 2 — Aliniere strategică (Viziune și destinație)</h3>
             <ul>
-              <li>One‑pagere: rezultate cheie 2025</li>
-              <li>Direcție 2026–2028 & identitate Kilostop</li>
-              <li>Clarificare: obstacole / oportunități</li>
+              <li><strong>Cristi</strong> — One‑pagere: Rezultate 2025, Direcție 2026–2028</li>
+              <li><strong>Discuție interactivă:</strong> Provocări, blocaje, oportunități</li>
             </ul>
+            <div class="provocari">
+              <span class="badge blocaj">🚧 Blocaje</span>
+              <span class="badge oportun">💡 Oportunități</span>
+            </div>
           </div>
-          <div class="step">
-            <h3>🕒 Timpul 3 — Inițiative T4</h3>
+
+          <div class="time-block">
+            <h3>Timp După — Team building</h3>
             <ul>
-              <li>Proiecte: defensive / offensive / prepare</li>
-              <li>Responsabili & termene (cine–ce–când)</li>
-              <li>Prioritizare transversală (2–3 focus)</li>
+              <li>Integration game</li>
+              <li>Cină echipă</li>
             </ul>
           </div>
         </div>
 
-        <div class="rai">
+        <!-- DAY 2 -->
+        <div class="day-card day2">
+          <div class="day-header">
+            <h2>📅 Ziua 2</h2>
+          </div>
+
+          <div class="time-block">
+            <h3>🕒 Timpul 3 — Prezentări</h3>
+            <div class="speakers">
+              <div class="speaker-card">
+                <strong>Gina — RAI</strong>
+                <div class="meta">Limbaj comun: Responsabilități, Acțiuni, Inițiative</div>
+              </div>
+              <div class="speaker-card">
+                <strong>Raluca — Design Operational</strong>
+                <div class="meta">Draft structură operațională</div>
+              </div>
+            </div>
+            <ul style="margin-top:10px">
+              <li><strong>Competențe echipă:</strong> Workshop pe comportamente — alegem 1 competență de dezvoltat în T4</li>
+              <li><strong>Proiecte propuse:</strong> Fiecare vine cu 2–3 proiecte (trimise cu 48h înainte)</li>
+            </ul>
+          </div>
+
+          <div class="time-block">
+            <h3>🕓 Timpul 4 — Proiecte aliniate (Inițiative Strategice)</h3>
+            <ul>
+              <li>Review proiecte propuse: defensive / prepare for offensive / offensive</li>
+              <li>Alegem 2–3 inițiative prioritare pentru T4</li>
+              <li>Responsabili & termene clare (cine–ce–când)</li>
+            </ul>
+          </div>
+
+          <div class="time-block">
+            <h3>Încheiere — Raluca</h3>
+            <ul>
+              <li>Recap decisions & next steps</li>
+              <li>Ownership & commitment</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rai" style="margin-top:14px">
           <h4>🧭 RAI — Limbaj comun</h4>
           <div class="muted">R = Responsabilități • A = Acțiuni de management • I = Inițiative strategice (proiecte)</div>
           <div style="margin-top:8px;font-size:13.5px">Obiective/rezultate cheie în one‑pagere → alegem inițiativele care le susțin direct.</div>
@@ -127,37 +209,51 @@
       </div>
 
       <div class="col">
-        <strong>Livrabile & pregătire (Raluca & echipă)</strong>
-        <div class="deliverables">
-          <div class="chip">
-            <strong>One‑pager: Rezultate 2025</strong>
-            <div class="meta">Cifră de afaceri, profit/cash KPI, operaționali</div>
-          </div>
-          <div class="chip">
-            <strong>One‑pager: Direcție 2026–2028</strong>
-            <div class="meta">Viziune, misiune, priorități strategice</div>
-          </div>
-          <div class="chip">
-            <strong>One‑pager: Identitate Kilostop</strong>
-            <div class="meta">Cine suntem • Promisiune • Diferențiatori</div>
-          </div>
-          <div class="chip">
-            <strong>Listă proiecte T4 (scurtă)</strong>
-            <div class="meta">Titlu • Impact • Owner • Deadline</div>
+        <strong>Ghid prezentări participanți</strong>
+        <div style="margin-top:10px;padding:12px;background:#fff;border-radius:10px;border:1px solid rgba(7,25,17,0.06)">
+          <div style="font-size:13.5px;line-height:1.6">
+            <p style="margin:0 0 8px 0"><strong>Ce să includeți în prezentare:</strong></p>
+            <ul style="margin:0;padding-left:18px;font-size:13px">
+              <li>Ce reusite ați avut trimestrul asta? (Proiecte, rezultate)</li>
+              <li>Ce challenges ați avut și cum le-ați depășit?</li>
+              <li>Ce cifre puteți prezenta? (Ținte, Încasări, KPIs)</li>
+              <li>Cum ați colaborat pentru a rezolva probleme împreună?</li>
+            </ul>
           </div>
         </div>
 
-        <div class="list">
+        <!-- EMAIL TEMPLATE -->
+        <div class="email-box">
+          <h4>📧 Email pregătire proiecte (trimite cu 48h înainte)</h4>
+          <p><strong>Dragă Echipă,</strong></p>
+          <p>Sunt încântat de energia și ideile voastre de la ultima întâlnire — ele ne dau puterea să creștem.</p>
+          <p><strong>Ce vă rog concret:</strong></p>
+          <ul>
+            <li>Gândiți-vă la <strong>2–3 proiecte</strong> care să vă ajute să vă faceți mai bine/ușor jobul/responsabilitățile la muncă</li>
+            <li>Pentru fiecare: <strong>titlu + 1 linie ce rezolvă + 3-5 pași</strong> ai proiectului</li>
+            <li>Trimiteți-le cu <strong>48h înainte</strong> de întâlnire</li>
+          </ul>
+          <p><strong>Tipuri de proiect:</strong></p>
+          <ul>
+            <li><strong>Defensive</strong> — reparăm/întărim (ex: organizare recepție, contabilitate auditată)</li>
+            <li><strong>Prepare for offensive</strong> — pregătim creșterea (ex: recrutări, trainings)</li>
+            <li><strong>Offensive</strong> — inițiative de creștere directă (ex: campanie referrals)</li>
+          </ul>
+          <p style="margin-top:10px"><strong>De ce facem asta:</strong> Ca deciziile să fie rapide, clare și bine sprijinite.</p>
+          <p style="margin-top:8px;font-size:12.5px;color:var(--muted)">Cu încredere, Cristi</p>
+        </div>
+
+        <div class="list" style="margin-top:14px">
           <strong>Reguli de facilitare</strong>
           <ul style="margin-top:6px;padding-left:18px;font-size:13.5px">
-            <li>Trimite one‑pagerele cu 48h înainte</li>
+            <li>Trimite one‑pagerele & proiectele cu 48h înainte</li>
             <li>3–5 min per prezentare + Q&A țintit</li>
-            <li>Moderator: menține focusul pe cei 3 timpi</li>
+            <li>Moderator: menține focusul pe cele 4 timpi</li>
             <li>Se aleg 2–3 inițiative T4 cu impact major</li>
           </ul>
         </div>
 
-        <div style="margin-top:10px">
+        <div style="margin-top:12px;padding:10px;background:linear-gradient(90deg,rgba(255,90,129,0.08),rgba(38,181,131,0.08));border-radius:10px">
           <strong>Mesaj cheie</strong>
           <div style="margin-top:6px;font-size:13.5px">„Construim împreună direcția Kilostop. Ownership, claritate, rezultate vizibile în T4."</div>
         </div>
@@ -165,7 +261,7 @@
     </div>
 
     <div class="footer">
-      <div class="hint">Următorii pași: 1) Trimite one‑pagere • 2) Confirmă agenda (întâlnirea 13:00) • 3) Gina prezintă RAI (15 min)</div>
+      <div class="hint">Următorii pași: 1) Trimite email proiecte • 2) Trimite one‑pagere cu 48h înainte • 3) Confirmă agenda pentru 2 zile</div>
       <div class="actions">
         <button class="btn" onclick="window.print()">Descarcă PDF</button>
       </div>
