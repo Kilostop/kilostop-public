@@ -196,33 +196,65 @@
 
         .navigation-controls {
             position: fixed;
-            bottom: 20px;
+            bottom: 16px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 20px;
-            background: var(--secondary-bg);
-            padding: 15px 20px;
-            border-radius: 25px;
-            border: 2px solid var(--border-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            gap: 12px;
+            background: rgba(248, 249, 250, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(233, 236, 239, 0.5);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navigation-controls:hover {
+            background: rgba(248, 249, 250, 0.95);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
         }
 
         .nav-arrow {
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            padding: 10px;
+            padding: 8px;
             border-radius: 50%;
             color: var(--text-secondary);
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 44px;
-            min-height: 44px;
+            min-width: 36px;
+            min-height: 36px;
+            position: relative;
+        }
+
+        .nav-arrow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(38, 181, 131, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .nav-arrow:hover:not(:disabled)::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-arrow:hover:not(:disabled) {
+            color: var(--accent-turcoaz);
+            transform: scale(1.05);
         }
 
 
@@ -261,16 +293,17 @@
 
 
             .navigation-controls {
-                bottom: 15px;
-                padding: 12px 18px;
-                gap: 15px;
+                bottom: 12px;
+                padding: 4px 8px;
+                gap: 8px;
+                border-radius: 16px;
             }
 
             .nav-arrow {
-                font-size: 1.3rem;
-                min-width: 40px;
-                min-height: 40px;
-                padding: 8px;
+                font-size: 1.5rem;
+                min-width: 48px;
+                min-height: 48px;
+                padding: 10px;
             }
 
             /* Add extra bottom padding to container on mobile */
