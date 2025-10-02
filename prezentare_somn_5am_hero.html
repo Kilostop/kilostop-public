@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somn Odihnitor - 5AM HERO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap');
+
+        :root {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8f9fa;
+            --accent-turcoaz: #26b583;
+            --accent-roz: #ff5a81;
+            --accent-portocaliu: #ff531a;
+            --accent-albastru: #3B89ED;
+            --text-primary: #071911;
+            --text-secondary: #778c85;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 3px solid var(--accent-turcoaz);
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-turcoaz);
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-icon {
+            font-size: 1rem;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-turcoaz);
+            color: white;
+            border-color: var(--accent-turcoaz);
+        }
+
+        .nav-btn.active {
+            background: var(--accent-turcoaz);
+            color: white;
+            border-color: var(--accent-turcoaz);
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .card {
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card h3 {
+            color: var(--accent-turcoaz);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .card h4 {
+            color: var(--accent-albastru);
+            margin: 15px 0 10px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: rgba(38, 181, 131, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            border: 1px solid var(--accent-turcoaz);
+            color: var(--accent-turcoaz);
+        }
+
+        .list-item {
+            margin: 12px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .list-item:hover {
+            transform: translateX(5px);
+        }
+
+        .list-item:before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+        }
+
+        .important {
+            background: rgba(255, 83, 26, 0.05);
+            padding: 18px;
+            border-left: 4px solid var(--accent-portocaliu);
+            margin: 18px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .protocol {
+            background: rgba(255, 90, 129, 0.05);
+            border: 2px solid var(--accent-roz);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 18px 0;
+        }
+
+        .protocol h4 {
+            color: var(--accent-roz);
+            margin-bottom: 12px;
+        }
+
+        .timer {
+            display: inline-block;
+            background: var(--accent-albastru);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin: 4px;
+            font-weight: 500;
+        }
+
+
+        .navigation-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            background: var(--secondary-bg);
+            padding: 15px 20px;
+            border-radius: 25px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-arrow {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+
+        .nav-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nav-arrow:disabled:hover {
+            background: none;
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .navigation {
+                gap: 8px;
+            }
+
+            .nav-btn {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+
+            .navigation-controls {
+                bottom: 15px;
+                padding: 12px 18px;
+                gap: 15px;
+            }
+
+            .nav-arrow {
+                font-size: 1.3rem;
+                min-width: 40px;
+                min-height: 40px;
+                padding: 8px;
+            }
+
+            /* Add extra bottom padding to container on mobile */
+            .container {
+                padding-bottom: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="header">
+            <h1>Somn Odihnitor</h1>
+            <p>Ghidul 5AM HERO pentru un somn perfect</p>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn active" onclick="showSlide('triada')" data-icon="🔮">
+                <span class="nav-icon">🔮</span>
+                Triada Magică
+            </button>
+            <button class="nav-btn" onclick="showSlide('recomandari')" data-icon="☀️">
+                <span class="nav-icon">☀️</span>
+                Recomandări
+            </button>
+            <button class="nav-btn" onclick="showSlide('rutina')" data-icon="🌆">
+                <span class="nav-icon">🌆</span>
+                Rutina Seară
+            </button>
+            <button class="nav-btn" onclick="showSlide('tehnici')" data-icon="😴">
+                <span class="nav-icon">😴</span>
+                Tehnici Adormire
+            </button>
+            <button class="nav-btn" onclick="showSlide('suplimente')" data-icon="💊">
+                <span class="nav-icon">💊</span>
+                Suplimente
+            </button>
+            <button class="nav-btn" onclick="showSlide('checklist')" data-icon="✅">
+                <span class="nav-icon">✅</span>
+                Checklist
+            </button>
+        </div>
+
+
+        <!-- Triada Magică -->
+        <div id="triada" class="slide active">
+            <div class="card">
+                <h3>🌙 Triada Magică pentru Somn Odihnitor</h3>
+
+                <h4>1. Întuneric Complet</h4>
+                <div class="list-item">Dormitul în întuneric complet este esențial pentru producția de melatonină</div>
+                <div class="list-item">Chiar și LED-ul roșu menține creierul în stare de veghe</div>
+                <div class="list-item">Folosește o <span class="highlight">mască de dormit</span> pentru întuneric total</div>
+                <div class="list-item">Evită lumina albastră cu 1 oră înainte de culcare</div>
+
+                <h4>2. Liniște Profundă</h4>
+                <div class="list-item">Zgomotul perturbă somnul chiar când nu îți amintești</div>
+                <div class="list-item">Poate duce la eliberarea de hormoni de stres</div>
+                <div class="list-item">Folosește <span class="highlight">dopuri pentru urechi</span></div>
+                <div class="list-item">Pentru sunete relaxante: brain.fm</div>
+
+                <h4>3. Răcoare (Temperatură Optimă)</h4>
+                <div class="list-item">Temperatura ideală: <span class="highlight">16-20°C</span> (cel mai bine 18.5°C)</div>
+                <div class="list-item">Corpului trebuie să se răcească pentru somn profund</div>
+                <div class="list-item">Evită exercițiile intense sau mâncatul copios seara</div>
+            </div>
+        </div>
+
+        <!-- Recomandări -->
+        <div id="recomandari" class="slide">
+            <div class="card">
+                <h3>☀️ Recomandări Zilnice pentru Somn Bun</h3>
+
+                <h4>În timpul zilei:</h4>
+                <div class="list-item">Ia-ți <span class="highlight">30 de minute de expunere la soare</span> dimineața (6-8:30)</div>
+                <div class="list-item">Bea suficiente lichide - deshidratarea perturbă somnul</div>
+                <div class="list-item">Fă mișcare 30 de minute - oamenii activi au somn mai bun</div>
+                <div class="important">
+                    <strong>Evitări importante:</strong>
+                    <div class="list-item">Cafeina după ora <span class="highlight">13:00</span></div>
+                    <div class="list-item">Alcool după ora <span class="highlight">15:00</span></div>
+                    <div class="list-item">Fumat după ora <span class="highlight">19:00</span></div>
+                </div>
+
+                <h4>La cină:</h4>
+                <div class="list-item">Ultima masă cu cel puțin <span class="highlight">3 ore</span> înainte de culcare</div>
+                <div class="list-item">Evită alimente grase, condimentate, sare, zahăr</div>
+
+                <h4>Alimente care ajută:</h4>
+                <div class="list-item">Migdale crude (triptofan + magneziu)</div>
+                <div class="list-item">Fulgi de ovăz (melatonină)</div>
+                <div class="list-item">Banane (magneziu + melatonină)</div>
+                <div class="list-item">Ciuperci, avocado, grapefruit, papaya</div>
+            </div>
+        </div>
+
+        <!-- Rutina de Seară -->
+        <div id="rutina" class="slide">
+            <div class="card">
+                <h3>🌆 Rutina de Seară pentru Somn Perfect</h3>
+
+                <div class="important">
+                    <h4>Regula 3-2-1:</h4>
+                    <div class="timer">3 ore înainte: Nu mai mânca</div>
+                    <div class="timer">2 ore înainte: Nu mai lucra</div>
+                    <div class="timer">1 oră înainte: Nu mai sta la ecrane</div>
+                </div>
+
+                <h4>Etapele rutinei de seară:</h4>
+                <div class="list-item"><strong>1. Revizuirea zilei (10 minute)</strong> - încheie ziua, evaluează, învață</div>
+                <div class="list-item"><strong>2. Pregătește hainele pentru ziua următoare (5 minute)</strong></div>
+                <div class="list-item"><strong>3. Igiena personală (10 minute)</strong> - duș, periaj dinți</div>
+                <div class="list-item"><strong>4. Rugăciune sau meditație (5 minute)</strong> - recunoștință</div>
+                <div class="list-item"><strong>5. Respirație hawaiană:</strong> 7 secunde inspirație, 7 secunde ținere, 7 secunde expirație, 7 secunde pauză</div>
+            </div>
+        </div>
+
+        <!-- Tehnici de Adormire -->
+        <div id="tehnici" class="slide">
+            <div class="card">
+                <h3>😴 Tehnici pentru a Adormi Mai Repede</h3>
+
+                <h4>Când ești în pat și nu poți dormi:</h4>
+                <div class="list-item"><strong>Intenția Paradoxală:</strong> Spune "Vreau să stau treaz" în loc să forțezi adormirea</div>
+                <div class="list-item"><strong>Relaxează-te:</strong> Exerciții de relaxare musculară progresivă</div>
+                <div class="list-item"><strong>Scoală-te și scrie:</strong> Dacă nu adormi în 20-30 minute, notează gândurile</div>
+                <div class="list-item"><strong>Respirația 4-7-8:</strong> 4 secunde inspirație, 7 secunde ținere, 8 secunde expirație</div>
+                <div class="list-item"><strong>Lectură beletristică:</strong> Nu cărți de dezvoltare personală</div>
+
+                <div class="important">
+                    <h4>Aplicații pentru monitorizarea somnului:</h4>
+                    <div class="list-item"><strong>Autosleep</strong> - urmărește calitatea somnului</div>
+                    <div class="list-item"><strong>Sleep Cycle</strong> - optimizează trezitul</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suplimente -->
+        <div id="suplimente" class="slide">
+            <div class="card">
+                <h3>💊 Suplimente pentru Somn (Protocol Andrew Huberman)</h3>
+
+                <div class="protocol">
+                    <h4>Protocol Somn (30-60 minute înainte de culcare):</h4>
+                    <div class="list-item"><strong>145mg Magneziu Threonate</strong> sau <strong>200mg Magneziu Bisglycinate</strong></div>
+                    <div class="list-item"><strong>50mg Apigenin</strong></div>
+                    <div class="list-item"><strong>100-400mg Theanine</strong></div>
+                    <div class="list-item"><strong>2-4 nopți pe săptămână:</strong> 2g Glicină + 100mg GABA</div>
+                </div>
+
+                <div class="important">
+                    <strong>Important:</strong> Introdu suplimentele câte unul pe rând pentru a observa efectele!
+                </div>
+
+                <h4>Suplimente esențiale pentru energie generală:</h4>
+                <div class="list-item"><strong>Omega 3:</strong> 1000-2000mg pe zi pentru reducerea inflamației</div>
+                <div class="list-item"><strong>Vitamina D3:</strong> 2000 UI pe zi (10,000 UI pentru deficit)</div>
+                <div class="list-item"><strong>Vitamina C:</strong> 65-90mg pe zi pentru imunitate</div>
+                <div class="list-item"><strong>Complex B:</strong> pentru producția de energie</div>
+            </div>
+        </div>
+
+        <!-- Checklist -->
+        <div id="checklist" class="slide">
+            <div class="card">
+                <h3>✅ Checklist pentru Somn Odihnitor</h3>
+
+                <h4>În fiecare seară verifică:</h4>
+                <div class="list-item">Ai mers la culcare înainte de <span class="highlight">22:00</span>?</div>
+                <div class="list-item">Ai mâncat cu cel puțin <span class="highlight">3 ore</span> înainte?</div>
+                <div class="list-item">Ai evitat cafea, alcool, țigări?</div>
+                <div class="list-item">Este camera întunecoasă, liniștită, la <span class="highlight">16-20°C</span>?</div>
+                <div class="list-item">Ai folosit dopuri pentru urechi/mască dacă e nevoie?</div>
+                <div class="list-item">Ai completat rutina de seară?</div>
+
+                <div class="important">
+                    <strong>Productivitatea este un continuum!</strong><br>
+                    Cum închei ziua contează la fel de mult ca ce faci în timpul zilei.
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="navigation-controls">
+            <button class="nav-arrow" id="prevBtn" disabled>⬅️</button>
+            <button class="nav-arrow" id="nextBtn">➡️</button>
+        </div>
+    </div>
+
+    <script>
+        const slides = ['triada', 'recomandari', 'rutina', 'tehnici', 'suplimente', 'checklist'];
+        const slideNames = ['Triada Magică', 'Recomandări', 'Rutina Seară', 'Tehnici Adormire', 'Suplimente', 'Checklist'];
+        let currentSlideIndex = 0;
+
+        function showSlide(slideId) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected slide
+            document.getElementById(slideId).classList.add('active');
+
+            // Add active class to clicked button
+            if (event && event.target && event.target.classList.contains('nav-btn')) {
+                event.target.classList.add('active');
+            }
+
+            // Update navigation button states
+            const slideIndex = slides.indexOf(slideId);
+            currentSlideIndex = slideIndex;
+            updateNavigationButtons();
+
+            // Scroll to the active slide
+            const activeSlide = document.getElementById(slideId);
+            if (activeSlide) {
+                activeSlide.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Enable/disable previous button
+            if (currentSlideIndex === 0) {
+                prevBtn.disabled = true;
+            } else {
+                prevBtn.disabled = false;
+            }
+
+            // Enable/disable next button
+            if (currentSlideIndex === slides.length - 1) {
+                nextBtn.disabled = true;
+            } else {
+                nextBtn.disabled = false;
+            }
+        }
+
+        function navigatePrevious() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(slides[currentSlideIndex]);
+
+                // Update nav button active state
+                document.querySelectorAll('.nav-btn').forEach((btn, index) => {
+                    if (index === currentSlideIndex) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        function navigateNext() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                showSlide(slides[currentSlideIndex]);
+
+                // Update nav button active state
+                document.querySelectorAll('.nav-btn').forEach((btn, index) => {
+                    if (index === currentSlideIndex) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial active slide
+            document.getElementById('triada').classList.add('active');
+            document.querySelector('.nav-btn').classList.add('active');
+
+            // Set up navigation controls
+            document.getElementById('prevBtn').addEventListener('click', navigatePrevious);
+            document.getElementById('nextBtn').addEventListener('click', navigateNext);
+
+            // Initialize navigation button states
+            updateNavigationButtons();
+        });
+    </script>
+</body>
+</html>

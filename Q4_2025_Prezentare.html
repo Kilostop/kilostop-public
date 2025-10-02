@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Întâlnire Trimestrială Kilostop Q4 2025</title>
+
+    <!-- Google Fonts - Branding Kilostop -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Paletă simplificată (alb, negru, verde; roz rar) */
+            --green: #26b583;       /* Primar */
+            --pink: #ff5a81;        /* Accent rar */
+            --black: #071911;       /* Text principal */
+            --gray: #778c85;        /* Text secundar */
+            --white: #ffffff;       /* Fundaluri */
+
+            /* Fundaluri subtile și borduri derivate din verde */
+            --subtle-bg: #f3fbf7;   /* verde foarte deschis */
+            --border: #dfeee8;      /* linie discretă */
+
+            /* Umbre discrete (fără efecte flashy) */
+            --shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.10);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Typography - Branding Guide */
+        h1, h2 {
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        h3, h4, h5, h6 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .hero {
+            background: var(--green);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Eliminat decor radial/animatii pentru un look curat */
+        .hero-content { position: relative; }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35em;
+            margin-bottom: 8px;
+            opacity: 0.95;
+        }
+
+        .vision-tag {
+            display: inline-block;
+            background: var(--white);
+            color: var(--black);
+            padding: 8px 18px;
+            border-radius: 24px;
+            margin-top: 16px;
+            font-size: 1.05em;
+            border: 1px solid var(--border);
+        }
+
+        /* Navigation - Gradient Roz → Portocaliu pe active/hover */
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            background: var(--white);
+            border: 2px solid var(--green);
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--black);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+
+        .nav-tab.active {
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--green);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--green);
+        }
+
+        .card-icon {
+            font-size: 2em;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.8em;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .card-content {
+            color: var(--gray);
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-content li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .card-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .highlight-box {
+            background: var(--subtle-bg);
+            border-left: 5px solid var(--green);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            color: var(--black);
+        }
+
+        .highlight-box strong { color: var(--black); }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-title {
+            font-size: 1.3em;
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Day Cards */
+        .day-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .day-card {
+            background: var(--green);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Eliminat decor radial */
+
+        .day-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-number {
+            font-size: 4em;
+            font-weight: 700;
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .day-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        /* Email Section */
+        .email-preview {
+            background: var(--white);
+            border: 2px solid var(--green);
+            border-radius: 15px;
+            padding: 30px;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .email-preview::before {
+            content: '📧 Email către echipă';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--green);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--green);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Special Background Colors */
+        .bg-turquoise-light {
+            background: var(--subtle-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .bg-pink-light {
+            background: var(--subtle-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .bg-blue-light {
+            background: var(--subtle-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .bg-orange-light {
+            background: var(--subtle-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        /* Accent Colors */
+        .text-turquoise { color: var(--green); }
+
+        .text-pink { color: var(--pink); }
+
+        .text-orange { color: var(--green); }
+
+        .text-blue { color: var(--green); }
+
+        /* Parte badge */
+        .parte-badge {
+            display: inline-block;
+            background: var(--white);
+            color: var(--pink);
+            padding: 6px 14px;
+            border-radius: 18px;
+            font-weight: 700;
+            font-size: 0.85em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border: 1px solid var(--pink);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .hero {
+                padding: 20px 12px;
+                margin-bottom: 12px;
+                border-radius: 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.4em;
+                margin-bottom: 6px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9em;
+                margin-bottom: 4px;
+            }
+
+            .vision-tag {
+                font-size: 0.8em;
+                padding: 5px 10px;
+                margin-top: 8px;
+            }
+
+            .nav-tabs {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+                margin-bottom: 12px;
+            }
+
+            .nav-tab {
+                padding: 8px 12px;
+                font-size: 0.8em;
+                text-align: center;
+                border-radius: 8px;
+            }
+
+            .nav-tab:last-child {
+                grid-column: 1 / -1;
+            }
+
+            .card {
+                padding: 14px;
+                margin-bottom: 12px;
+                border-radius: 10px;
+            }
+
+            .card-header {
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 12px;
+                padding-bottom: 10px;
+            }
+
+            .card-icon {
+                font-size: 1.3em;
+                min-width: 35px;
+            }
+
+            .card-title {
+                font-size: 1.15em;
+            }
+
+            .card-content {
+                font-size: 0.9em;
+                line-height: 1.5;
+            }
+
+            .card-content ul {
+                margin-top: 8px;
+            }
+
+            .card-content li {
+                padding: 8px 0;
+                padding-left: 25px;
+            }
+
+            .card-content h3,
+            .card-content h4 {
+                font-size: 1em;
+                margin-bottom: 8px;
+            }
+
+            .nested-list {
+                margin-left: 15px;
+                margin-top: 5px;
+            }
+
+            .day-cards {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 12px;
+            }
+
+            .day-card {
+                padding: 18px;
+                border-radius: 12px;
+            }
+
+            .day-number {
+                font-size: 2em;
+                top: 8px;
+                right: 12px;
+            }
+
+            .day-title {
+                font-size: 1.3em;
+                margin-bottom: 12px;
+            }
+
+            .timeline-item {
+                margin-bottom: 20px;
+            }
+
+            .timeline-title {
+                font-size: 1em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin: 15px 0;
+            }
+
+            .stat-number {
+                font-size: 1.8em;
+            }
+
+            .stat-label {
+                font-size: 0.8em;
+            }
+
+            .email-preview {
+                padding: 15px;
+                font-size: 0.85em;
+            }
+
+            .email-preview::before {
+                font-size: 0.75em;
+                top: -10px;
+                padding: 4px 10px;
+            }
+
+            .highlight-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            .bg-turquoise-light,
+            .bg-pink-light,
+            .bg-blue-light,
+            .bg-orange-light {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .parte-badge {
+                font-size: 0.7em;
+                padding: 4px 8px;
+                margin-bottom: 8px;
+            }
+
+            footer {
+                padding: 20px 12px;
+                margin-top: 30px;
+            }
+
+            .footer-vision {
+                font-size: 0.95em;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .nav-tabs {
+                display: none;
+            }
+
+            .content-section {
+                display: block !important;
+                page-break-after: always;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray);
+            margin-top: 60px;
+        }
+
+        .footer-vision {
+            font-size: 1.2em;
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Nested list styling */
+        .nested-list {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+
+        .nested-list li::before {
+            content: '→';
+            color: var(--green);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Întâlnire Trimestrială Q4 2025</h1>
+                <div class="hero-subtitle">Echipa Kilostop</div>
+                <div class="vision-tag">Supli, Sănătoși, Fericiți 💚</div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('structura')">📋 Structura</button>
+            <button class="nav-tab" onclick="showSection('ziua1')">📅 Ziua 1</button>
+            <button class="nav-tab" onclick="showSection('ziua2')">📅 Ziua 2</button>
+            <button class="nav-tab" onclick="showSection('prezentari')">📊 Ghid Prezentări</button>
+            <button class="nav-tab" onclick="showSection('proiecte')">💡 Proiecte T4</button>
+        </div>
+
+        <!-- Content Sections -->
+
+        <!-- Structura Section -->
+        <div id="structura" class="content-section active">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h2 class="card-title">Structura Trimestrialei Q4 2025</h2>
+                </div>
+                <div class="card-content">
+                    <p style="font-size: 1.1em; margin-bottom: 30px; color: var(--black);">
+                        Agenda finală, decisă împreună cu Raluca Culda:
+                    </p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">📅 Ziua 1</div>
+                            <ul>
+                                <li>Introducere - Raluca</li>
+                                <li>Partea 1 - Review</li>
+                                <li>Partea 2 - Aliniere Strategică (Viziune și destinație)
+                                    <ul class="nested-list">
+                                        <li>Prezentare Cristi cu One-pagere</li>
+                                        <li><strong>Provocări - DISCUȚIE</strong> (blocaje + oportunități)</li>
+                                    </ul>
+                                </li>
+                                <li>Timp După
+                                    <ul class="nested-list">
+                                        <li>Integration game</li>
+                                        <li>Cină echipă</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-title">📅 Ziua 2</div>
+                            <ul>
+                                <li>Partea 3 - Prezentări
+                                    <ul class="nested-list">
+                                        <li>Gina: RAI Framework</li>
+                                        <li>Raluca: Draft Design Operațional</li>
+                                        <li>Workshop Competențe - dezvoltare comportamente</li>
+                                        <li>Direcție pentru proiecte (primite de dinainte: 2-3 propuneri/persoană)</li>
+                                    </ul>
+                                </li>
+                                <li>Partea 4 - Proiecte Aliniate (Inițiative Strategice)
+                                    <ul class="nested-list">
+                                        <li>Alegem 1 proiect per persoană pentru T4</li>
+                                    </ul>
+                                </li>
+                                <li>Încheiere - Raluca</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ziua 1 Section -->
+        <div id="ziua1" class="content-section">
+            <div class="day-cards">
+                <div class="day-card">
+                    <div class="day-number">1</div>
+                    <div class="day-card-content">
+                        <h2 class="day-title">Ziua 1</h2>
+                        <h3 style="margin-bottom: 15px; opacity: 0.9;">Agenda</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Introducere - Raluca</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Partea 1 - Review</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Partea 2 - Aliniere Strategică</li>
+                            <li style="padding: 8px 0; padding-top: 15px; font-weight: 600;">După program:</li>
+                            <li style="padding: 8px 0; opacity: 0.9;">→ Integration game</li>
+                            <li style="padding: 8px 0; opacity: 0.9;">→ Cină echipă</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 30px;">
+                <div class="card-header">
+                    <div class="card-icon">👋</div>
+                    <h2 class="card-title">Introducere - Raluca</h2>
+                </div>
+                <div class="card-content">
+                    <p>Raluca deschide trimestriala, stabilește tonul și contextul pentru următoarele două zile.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <h2 class="card-title">Partea 1 - Review</h2>
+                </div>
+                <div class="card-content">
+                    <div class="parte-badge">Partea 1</div>
+                    <h3 class="text-turquoise" style="margin-bottom: 15px;">Focus: Trecutul și prezentul</h3>
+                    <ul>
+                        <li>Raport scurt de la fiecare departament (rezultate, acțiuni, grad de succes)</li>
+                        <li>Validarea acțiunilor luate în ultimele 3 luni și eficiența lor</li>
+                        <li>Înțelegerea comună a provocărilor și oportunităților actuale</li>
+                    </ul>
+                    <div class="bg-turquoise-light" style="margin-top: 20px;">
+                        <strong>Obiectiv:</strong> Toată echipa să înțeleagă realitatea actuală împreună.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h2 class="card-title">Partea 2 - Aliniere Strategică</h2>
+                </div>
+                <div class="card-content">
+                    <div class="parte-badge">Partea 2</div>
+                    <h3 class="text-turquoise" style="margin-bottom: 15px;">Focus: Viziune și destinație</h3>
+
+                    <div class="highlight-box">
+                        <h4 style="margin-bottom: 10px;">🎤 Prezentare Cristi:</h4>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>One-pagere</strong> cu rezultate cheie și ținte clare pentru finalul 2025</li>
+                            <li>Direcția clară pe termen mediu (2026-2028)</li>
+                            <li>Identitatea și rostul Kilostop (cine suntem, de ce existăm)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-pink-light" style="margin-top: 20px;">
+                        <h4 class="text-pink" style="margin-bottom: 10px;">💬 Provocări - DISCUȚIE (important!)</h4>
+                        <p style="color: var(--black); margin-bottom: 10px;">
+                            Discuție comună despre:
+                        </p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Blocaje:</strong> Ce ne împiedică să atingem viziunea?</li>
+                            <li><strong>Oportunități:</strong> Ce ne poate accelera progresul?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎮</div>
+                    <h2 class="card-title">Timp După - Integrare Echipă</h2>
+                </div>
+                <div class="card-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">🎯</div>
+                            <div class="stat-label">Integration Game</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">🍽️</div>
+                            <div class="stat-label">Cină Echipă</div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 15px;">
+                        Conectare la nivel uman și consolidare colaborare
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ziua 2 Section -->
+        <div id="ziua2" class="content-section">
+            <div class="day-cards">
+                <div class="day-card">
+                    <div class="day-number">2</div>
+                    <div class="day-card-content">
+                        <h2 class="day-title">Ziua 2</h2>
+                        <h3 style="margin-bottom: 15px; opacity: 0.9;">Agenda</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Partea 3 - Prezentări</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Partea 4 - Proiecte Aliniate</li>
+                            <li style="padding: 8px 0; padding-top: 15px; font-weight: 600;">✓ Încheiere - Raluca</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 30px;">
+                <div class="card-header">
+                    <div class="card-icon">📋</div>
+                    <h2 class="card-title">Partea 3 - Prezentări</h2>
+                </div>
+                <div class="card-content">
+                    <div class="parte-badge">Partea 3</div>
+                    <h3 class="text-turquoise" style="margin-bottom: 15px;">Focus: Metodologie și Dezvoltare</h3>
+
+                    <div class="bg-turquoise-light">
+                        <h4 class="text-turquoise" style="margin-bottom: 10px;">📋 Gina - RAI Framework</h4>
+                        <p>Prezentare despre cum gestionăm <strong>Responsabilități – Acțiuni de management – Inițiative strategice</strong>.</p>
+                    </div>
+
+                    <div class="bg-blue-light">
+                        <h4 class="text-turquoise" style="margin-bottom: 10px;">🏗️ Raluca - Draft Design Operațional</h4>
+                        <p>Draft de structură organizațională și clarificare roluri.</p>
+                    </div>
+
+                    <div class="bg-orange-light">
+                        <h4 class="text-turquoise" style="margin-bottom: 10px;">⭐ Workshop Competențe</h4>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Lucrăm pe un <strong>comportament</strong> legat de o competență pe care să o dezvoltăm în trimestru</li>
+                            <li>Workshop pe comportamente - pe modelul pe care aveți acces</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🚀</div>
+                    <h2 class="card-title">Partea 4 - Proiecte Aliniate</h2>
+                </div>
+                <div class="card-content">
+                    <div class="parte-badge">Partea 4</div>
+                    <h3 class="text-turquoise" style="margin-bottom: 15px;">Focus: Inițiative Strategice T4</h3>
+
+                    <div class="bg-pink-light" style="padding: 25px;">
+                        <h4 class="text-pink" style="margin-bottom: 15px;">🎯 Scopul principal</h4>
+                        <p style="font-size: 1.1em; color: var(--black); text-align: center;">
+                            Alegem <strong>1 proiect per persoană</strong> pentru T4<br>
+                            din cele 2-3 propuse (trimise cu 48h înainte)
+                        </p>
+                    </div>
+
+                    <h4 style="margin-top: 30px; margin-bottom: 15px; color: var(--green);">Proces:</h4>
+                    <ul>
+                        <li>Review proiectele propuse de echipă</li>
+                        <li>Evaluare aliniere cu destinația 2025 (prezentată în Ziua 1)</li>
+                        <li>Prioritizare și alegere proiecte finale</li>
+                        <li>Clarificare: owner, timeline, resurse necesare</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🌟</div>
+                    <h2 class="card-title">Încheiere - Raluca</h2>
+                </div>
+                <div class="card-content">
+                    <div style="background: var(--green); padding: 30px; border-radius: 12px; text-align: center; color: white;">
+                        <h3 style="margin-bottom: 15px; font-size: 1.5em;">Consolidare mesaj</h3>
+                        <p style="font-size: 1.1em; margin-bottom: 10px;">Claritate și energie pozitivă pentru T4!</p>
+                        <p style="opacity: 0.9;">Raluca închide trimestriala cu mesaj de aliniament și motivație</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prezentari Section -->
+        <div id="prezentari" class="content-section">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <h2 class="card-title">Ghid pentru Prezentările Echipei</h2>
+                </div>
+                <div class="card-content">
+                    <p style="font-size: 1.1em; color: var(--gray); margin-bottom: 30px;">
+                        Fiecare membru al echipei va prezenta în <strong>Partea 1 - Review</strong> din Ziua 1. Iată structura recomandată:
+                    </p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">✨ Ce reușite ați avut trimestrul acesta?</div>
+                            <ul>
+                                <li>Proiecte finalizate cu succes</li>
+                                <li>Îmbunătățiri aduse în departament</li>
+                                <li>Colaborări reușite cu alte departamente</li>
+                                <li>Orice altceva care vă face mândri</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-title">🚧 Ce provocări ați avut și cum le-ați depășit?</div>
+                            <ul>
+                                <li>Obstacole întâmpinate</li>
+                                <li>Soluții găsite</li>
+                                <li>Ce ați învățat din aceste provocări</li>
+                                <li>Ce ar fi putut merge mai bine</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-title">📈 Ce cifre puteți prezenta (relevante)?</div>
+                            <ul>
+                                <li>Ținte stabilite vs. realizate</li>
+                                <li>Încasări / venituri generate</li>
+                                <li>Pacienți deserviți / KPI-uri departament</li>
+                                <li>Orice metrici care arată progresul</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-title">🤝 Cum ați colaborat pentru a rezolva împreună probleme?</div>
+                            <ul>
+                                <li>Exemple de teamwork între departamente</li>
+                                <li>Cum v-ați ajutat reciproc</li>
+                                <li>Momente în care colaborarea a făcut diferența</li>
+                                <li>Ce ați învățat despre lucrul în echipă</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="margin-top: 30px;">
+                        <h4 class="text-pink" style="margin-bottom: 10px;">💡 Tips pentru o prezentare bună:</h4>
+                        <ul style="margin-left: 20px;">
+                            <li>Fii concret și specific (exemple, nu generalități)</li>
+                            <li>Arată atât succesele cât și lecțiile învățate</li>
+                            <li>Folosește cifre concrete când e posibil</li>
+                            <li>Evidențiază colaborarea cu echipa</li>
+                            <li>Durata recomandată: 5-7 minute per prezentare</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proiecte Section -->
+        <div id="proiecte" class="content-section">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">💡</div>
+                    <h2 class="card-title">Trimiteți 2-3 Proiecte Înainte de Trimestrială</h2>
+                </div>
+                <div class="card-content">
+                    <div class="bg-pink-light" style="padding: 25px; text-align: center;">
+                        <h3 class="text-pink" style="margin-bottom: 15px;">
+                            📅 Trimiteți cu 48h înainte de întâlnire
+                        </h3>
+                        <p style="color: var(--black);">
+                            Ne ajută să prioritizăm și să intrăm direct în discuții concrete în Partea 4!
+                        </p>
+                    </div>
+
+                    <div class="email-preview">
+                        <p style="margin-bottom: 15px;"><strong>Draga Echipa,</strong></p>
+
+                        <p style="margin-bottom: 15px;">
+                            Sunt încântat de energia și ideile voastre de la ultima întâlnire — ele ne dau puterea să creștem.
+                            Vreau să valorificăm acest entuziasm într-un mod clar și eficient, ca fiecare propunere să aibă șansa reală să se transforme în rezultat.
+                        </p>
+
+                        <p style="margin-bottom: 10px;"><strong>Ce vă rog concret:</strong></p>
+                        <ul style="margin-bottom: 20px; margin-left: 30px;">
+                            <li style="margin-bottom: 8px;">Gândiți-vă la 2–3 proiecte care să vă ajute să vă faceți mai bine/ușor jobul/responsabilitățile la muncă</li>
+                            <li style="margin-bottom: 8px;">Pentru fiecare: <strong>titlu + 1 linie ce rezolvă + 3-5 pași ai proiectului</strong></li>
+                            <li style="margin-bottom: 8px;">Trimiteți-le cu <strong>48h înainte de întâlnire</strong> (ne ajută să prioritizăm)</li>
+                        </ul>
+
+                        <p style="margin-bottom: 10px;"><strong>Pe scurt, tipurile de proiect (ca să vă orientați):</strong></p>
+                        <ul style="margin-bottom: 20px; margin-left: 30px;">
+                            <li style="margin-bottom: 8px;"><strong>Defensive</strong> — reparăm/întărim ceva ca să nu pierdem (ex.: organizare recepție, contabilitate auditată)</li>
+                            <li style="margin-bottom: 8px;"><strong>Prepare for offensive</strong> — pregătim capacitatea de a crește rapid (ex.: recrutări, training-uri)</li>
+                            <li style="margin-bottom: 8px;"><strong>Offensive</strong> — inițiative de creștere directă (ex.: campanie referrals)</li>
+                        </ul>
+
+                        <p style="margin-bottom: 10px;"><strong>De ce facem asta:</strong></p>
+                        <ul style="margin-bottom: 20px; margin-left: 30px;">
+                            <li style="margin-bottom: 8px;">Ca deciziile luate în întâlnire să fie rapide, clare și bine sprijinite</li>
+                            <li style="margin-bottom: 8px;">Ca fiecare proiect propus să fie imediat implementabil sau ușor de evaluat</li>
+                        </ul>
+
+                        <p style="margin-bottom: 15px;">
+                            Mulțumesc — sunt curios să văd ideile voastre și să lucrăm împreună la cele mai bune 2–3 inițiative pentru T4.
+                        </p>
+
+                        <p style="margin-bottom: 5px;">Cu încredere,</p>
+                        <p><strong>Cristi</strong></p>
+                        <p style="font-size: 0.9em; color: var(--gray);">Fondator Kilostop</p>
+                    </div>
+
+                    <div class="bg-turquoise-light" style="margin-top: 30px; padding: 25px;">
+                        <h3 class="text-turquoise" style="margin-bottom: 15px;">📝 Template pentru Propunerea de Proiect:</h3>
+                        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid var(--green);">
+                            <p><strong>Titlu proiect:</strong> [Nume scurt și clar]</p>
+                            <p style="margin-top: 10px;"><strong>Ce rezolvă:</strong> [O linie - ce problemă/oportunitate adresează]</p>
+                            <p style="margin-top: 10px;"><strong>Tip:</strong> [Defensive / Prepare for offensive / Offensive]</p>
+                            <p style="margin-top: 10px;"><strong>Pași:</strong></p>
+                            <ol style="margin-left: 30px; margin-top: 5px;">
+                                <li>Pas 1</li>
+                                <li>Pas 2</li>
+                                <li>Pas 3</li>
+                                <li>Pas 4 (opțional)</li>
+                                <li>Pas 5 (opțional)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h2 class="card-title">Exemple de Tipuri de Proiecte</h2>
+                </div>
+                <div class="card-content">
+                    <div class="stats-grid">
+                        <div class="stat-card" style="background: var(--subtle-bg);">
+                            <div style="font-size: 2em; margin-bottom: 10px;">🛡️</div>
+                            <div class="stat-label" style="color: var(--black); font-weight: 600;">Defensive</div>
+                            <p style="margin-top: 10px; font-size: 0.85em; color: var(--gray);">
+                                Reparăm/întărim ceva ca să nu pierdem<br>
+                                Ex: Standardizare onboarding
+                            </p>
+                        </div>
+
+                        <div class="stat-card" style="background: var(--subtle-bg);">
+                            <div style="font-size: 2em; margin-bottom: 10px;">🎯</div>
+                            <div class="stat-label" style="color: var(--black); font-weight: 600;">Prepare for Offensive</div>
+                            <p style="margin-top: 10px; font-size: 0.85em; color: var(--gray);">
+                                Pregătim capacitatea de creștere<br>
+                                Ex: Training echipă, Recrutări
+                            </p>
+                        </div>
+
+                        <div class="stat-card" style="background: var(--bg-turquoise-light);">
+                            <div style="font-size: 2em; margin-bottom: 10px;">🚀</div>
+                            <div class="stat-label" style="color: var(--black); font-weight: 600;">Offensive</div>
+                            <p style="margin-top: 10px; font-size: 0.85em; color: var(--gray);">
+                                Inițiative de creștere directă<br>
+                                Ex: Campanie referrals
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-vision">
+                Împreună creăm o lume de oameni supli, sănătoși și fericiți 💙
+            </div>
+            <div style="margin-top: 10px;">
+                Întâlnire Trimestrială Q4 2025 • Echipa Kilostop
+            </div>
+            <div style="margin-top: 20px; font-size: 0.9em;">
+                <strong>Viziunea noastră:</strong> Kilostop - Autoritatea națională în sănătate metabolică și nutrițională
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+
+            // Scroll to top smoothly
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add smooth scroll animation on page load
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            setTimeout(function() {
+                document.body.style.transition = 'opacity 0.5s ease-in';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const tabs = ['structura', 'ziua1', 'ziua2', 'prezentari', 'proiecte'];
+            const currentSection = document.querySelector('.content-section.active');
+            const currentIndex = tabs.indexOf(currentSection.id);
+
+            if (e.key === 'ArrowRight' && currentIndex < tabs.length - 1) {
+                const nextTab = document.querySelector(`[onclick="showSection('${tabs[currentIndex + 1]}')"]`);
+                nextTab.click();
+            } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                const prevTab = document.querySelector(`[onclick="showSection('${tabs[currentIndex - 1]}')"]`);
+                prevTab.click();
+            }
+        });
+
+        // Add print functionality
+        function printPresentation() {
+            window.print();
+        }
+
+        // Add fullscreen functionality
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Add tooltips on hover for cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
