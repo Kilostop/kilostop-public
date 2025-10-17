@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arhitectura Software Kilostop - Ecosistemul Integrat 2024-2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #071911;
+            background: #f8f9fa;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: #26b583;
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(38, 181, 131, 0.3);
+        }
+
+        .header h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Overview Section */
+        .overview {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .overview h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            color: #26b583;
+            margin-bottom: 30px;
+        }
+
+        .principle-box {
+            background: #26b583;
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #26b583;
+        }
+
+        .stat-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #26b583;
+            margin-bottom: 5px;
+        }
+
+        /* Components Section */
+        .components {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.2rem;
+            color: #071911;
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #26b583;
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .component-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .component-header {
+            background: #26b583;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .component-header h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .component-header .version {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .component-content {
+            padding: 30px;
+        }
+
+        .ascii-box {
+            background: #f8f9fa;
+            border: 2px solid #26b583;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .role {
+            background: #4a4a4a;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* Integrated System */
+        .integrated-system {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .system-diagram {
+            background: #f8f9fa;
+            border: 3px solid #26b583;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        /* Conclusion */
+        .conclusion {
+            background: #26b583;
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .conclusion h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .comparison-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .comparison-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .comparison-item ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .comparison-item li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .comparison-item li:before {
+            content: "→";
+            color: #ffffff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .final-result {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #778c85;
+            font-size: 0.9rem;
+        }
+
+        .footer .tagline {
+            font-style: italic;
+            margin-top: 10px;
+            color: #26b583;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .component-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .overview, .integrated-system {
+                padding: 30px 20px;
+            }
+
+            .ascii-box, .system-diagram {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .overview h2, .section-title, .conclusion h2 {
+                font-size: 1.8rem;
+            }
+
+            .ascii-box, .system-diagram {
+                font-size: 0.5rem;
+                padding: 15px;
+            }
+
+            .component-content {
+                padding: 20px;
+            }
+
+            .principle-box {
+                font-size: 1rem;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .ascii-box, .system-diagram {
+                font-size: 0.45rem;
+                padding: 10px;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #26b583;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1e9368;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Arhitectura Software Kilostop</h1>
+            <div class="subtitle">Ecosistemul Integrat 2024-2025</div>
+        </div>
+
+        <!-- Overview -->
+        <div class="overview">
+            <h2>VEDERE DE ANSAMBLU</h2>
+            <div class="principle-box">
+                🎯 PRINCIPIU CENTRAL: "One Single Source of Truth"<br>
+                Toate sistemele comunică bidireccional ↔ Date unificate
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="icon">📊</div>
+                    <div class="number">35.000</div>
+                    <div>pacienți țintă (2028)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">🔄</div>
+                    <div class="number">7</div>
+                    <div>componente integrate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">⚡</div>
+                    <div class="number">AI</div>
+                    <div>asistat & automatizat</div>
+                </div>
+            </div>
+
+            <div class="principle-box">
+                FLUX: Prospect → Portal → Kilosoft → ADA → App → Mesaje → Retenție
+            </div>
+        </div>
+
+        <!-- Components Section -->
+        <div class="components">
+            <h2 class="section-title">COMPONENTE INDIVIDUALE</h2>
+
+            <div class="component-grid">
+                <!-- Portal.kilostop.ro -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <h3>1.1 Portal.kilostop.ro</h3>
+                        <div class="version">Hub Central de Evaluări</div>
+                    </div>
+                    <div class="component-content">
+                        <div class="ascii-box">┌─────────────────────────────────────────┐
+│     PORTAL.KILOSTOP.RO                  │
+│  Hub Central pentru Quiz & Evaluări    │
+├─────────────────────────────────────────┤
+│                                         │
+│  ┌──────────┐  ┌──────────┐            │
+│  │ Quiz-uri │  │Chestio-  │            │
+│  │ Slabit   │  │nare 4O   │            │
+│  └──────────┘  └──────────┘            │
+│                                         │
+│  ┌──────────┐  ┌──────────┐            │
+│  │Evaluări  │  │Quiz-uri  │            │
+│  │Medicale  │  │Programe  │            │
+│  └──────────┘  └──────────┘            │
+│                                         │
+│  Înlocuiește: Google Forms,            │
+│  ScoreApp, Typeform                    │
+│                                         │
+│  ↓ Toate rezultatele vizibile          │
+│    per utilizator                      │
+└─────────────────────────────────────────┘</div>
+                        <div class="role">
+                            <strong>Rol:</strong> Centralizare completă a tuturor instrumentelor de colectare date. Fiecare pacient vede istoric complet evaluări.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kilosoft -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <h3>1.2 Kilosoft</h3>
+                        <div class="version">Platforma Medicală (Evoluție 1.5 → 2.0 → 3.0)</div>
+                    </div>
+                    <div class="component-content">
+                        <div class="ascii-box">┌──────────────────────────────────────────────────────────┐
+│                 KILOSOFT - PLATFORMA MEDICALĂ             │
+├──────────────────────────────────────────────────────────┤
+│                                                           │
+│  VERSIUNEA 1.5 (Upgrade Platformă)                       │
+│  ┌────────────────────────────────────┐                  │
+│  │ Migrare software vechi → platformă │                  │
+│  │ nouă, modernă, rapidă              │                  │
+│  └────────────────────────────────────┘                  │
+│                                                           │
+│  VERSIUNEA 2.0 (Funcționalități Noi)                     │
+│  ┌─────────────┐  ┌──────────────┐  ┌────────────┐      │
+│  │  Rapoarte   │  │   Diete în   │  │  Atașare   │      │
+│  │   Noi &     │  │   Kilosoft   │  │  Analize & │      │
+│  │  Corecte    │  │  (nu Word!)  │  │ Documente  │      │
+│  └─────────────┘  └──────────────┘  └────────────┘      │
+│                                                           │
+│  VERSIUNEA 3.0 (AI Integration - VISUL MEDICULUI)        │
+│  ┌──────────────────────────────────────────────┐        │
+│  │         🤖 AGENȚI COPILOT AI 🤖              │        │
+│  ├──────────────────────────────────────────────┤        │
+│  │  • Rezumat automat analize                   │        │
+│  │  • Tracking evoluție pacient                 │        │
+│  │  • Sugestii implementare tratament           │        │
+│  │  • Medicul decide, AI asistă                 │        │
+│  └──────────────────────────────────────────────┘        │
+│                                                           │
+│  Beneficiu: Medic folosește UMANITATEA,                  │
+│             tehnologia face EFICIENȚA                    │
+└──────────────────────────────────────────────────────────┘</div>
+                        <div class="role">
+                            <strong>Rol:</strong> Inima sistemului medical - de la gestionare consultații la AI care ajută medicii să fie mai umani.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ada.Kilostop.ro -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <h3>1.3 ada.Kilostop.ro</h3>
+                        <div class="version">Baza de Date Nutrițională</div>
+                    </div>
+                    <div class="component-content">
+                        <div class="ascii-box">┌─────────────────────────────────────────┐
+│      ADA.KILOSTOP.RO                    │
+│   Platforma ADA (Analiza Dietetică)    │
+├─────────────────────────────────────────┤
+│                                         │
+│  VERSIUNEA 1.5 (80% Done)               │
+│  ┌────────────────────────────┐         │
+│  │ Migrare → platformă nouă   │         │
+│  └────────────────────────────┘         │
+│                                         │
+│  VERSIUNEA 2.0 (Calitate Date)          │
+│  ┌────────────────────────────┐         │
+│  │ • Curățenie bază de date   │         │
+│  │ • Alimente compuse corecte │         │
+│  │ • Micronutrienți completi  │         │
+│  └────────────────────────────┘         │
+│                                         │
+│  ╔════════════════════════════╗         │
+│  ║  DATABASE ALIMENTE         ║         │
+│  ║  • Macronutrienți          ║         │
+│  ║  • Micronutrienți          ║         │
+│  ║  • Alimente compuse        ║         │
+│  ╚════════════════════════════╝         │
+│                                         │
+│  Sursă pentru: Aplicația Mobilă        │
+└─────────────────────────────────────────┘</div>
+                        <div class="role">
+                            <strong>Rol:</strong> Single source of truth pentru toate datele nutriționale - critică pentru consistență.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Mobilă -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <h3>1.4 Aplicația Mobilă Kilostop</h3>
+                        <div class="version">Jurnal Alimentar</div>
+                    </div>
+                    <div class="component-content">
+                        <div class="ascii-box">┌─────────────────────────────────────────┐
+│    📱 APLICAȚIA MOBILĂ KILOSTOP         │
+│       Jurnal Alimentar                  │
+├─────────────────────────────────────────┤
+│                                         │
+│  MODEL: Similar EatNTrack               │
+│  ┌────────────────────────────┐         │
+│  │  📝 Jurnal Alimentar       │         │
+│  │  • Track mese zilnice      │         │
+│  │  • Conectare cu ADA DB     │         │
+│  │  • Calculare nutrienți     │         │
+│  └────────────────────────────┘         │
+│                                         │
+│  ┌────────────────────────────┐         │
+│  │  Quiz-uri din Portal       │         │
+│  │  (opțional - de decis)     │         │
+│  └────────────────────────────┘         │
+│                                         │
+│  ┌────────────────────────────┐         │
+│  │  Features Client Kilostop  │         │
+│  │  (din 2019 - opțional)     │         │
+│  └────────────────────────────┘         │
+│                                         │
+│  BENEFICII STRATEGICE:                  │
+│  ✓ Jurnal direct în Kilosoft            │
+│  ✓ Atrage prospecți noi                 │
+│  ✓ Top of funnel pentru achiziție       │
+└─────────────────────────────────────────┘</div>
+                        <div class="role">
+                            <strong>Rol:</strong> Punctul de contact zilnic cu pacienții + instrument de lead generation.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kilostop.ro -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <h3>1.5 Kilostop.ro</h3>
+                        <div class="version">Website Principal - Revamp</div>
+                    </div>
+                    <div class="component-content">
+                        <div class="ascii-box">┌─────────────────────────────────────────┐
+│       🌐 KILOSTOP.RO                    │
+│     Website Principal - Revamp          │
+├─────────────────────────────────────────┤
+│                                         │
+│  ┌──────────┐  ┌──────────┐            │
+│  │  Design  │  │  Format  │            │
+│  │  Modern  │  │  Modern  │            │
+│  └──────────┘  └──────────┘            │
+│                                         │
+│  Pagini Principale:                     │
+│  • Homepage                             │
+│  • Despre Noi                           │
+│  • Servicii                             │
+│  • Contact                              │
+│                                         │
+│  → Direcționează către LP pentru        │
+│    programe specifice                   │
+└─────────────────────────────────────────┘</div>
+                        <div class="role">
+                            <strong>Rol:</strong> Fața publică, branding, autoritate - prima impresie pentru toți prospecții.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- lp.kilostop.ro -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <h3>1.6 lp.kilostop.ro</h3>
+                        <div class="version">Landing Pages Programe</div>
+                    </div>
+                    <div class="component-content">
+                        <div class="ascii-box">┌──────────────────────────────────────────────────────┐
+│           LP.KILOSTOP.RO                             │
+│     Landing Pages pentru Programe Specifice          │
+├──────────────────────────────────────────────────────┤
+│                                                       │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  │
+│  │  Prediabet  │  │   Amalia    │  │    Elena    │  │
+│  │   Program   │  │   Medical   │  │ Vegetarieni │  │
+│  └─────────────┘  └─────────────┘  └─────────────┘  │
+│                                                       │
+│  ┌─────────────┐  ┌─────────────┐                    │
+│  │   Ancuța    │  │   Slabit    │                    │
+│  │  Prediabet  │  │   General   │                    │
+│  └─────────────┘  └─────────────┘                    │
+│                                                       │
+│  🔀 CHESTIONAR ROUTER (2-3 întrebări)                │
+│  ┌────────────────────────────────────┐              │
+│  │ Ce cauți? Slabit / Boli / Altele  │              │
+│  │         ↓                          │              │
+│  │  Recomandare program personalizat  │              │
+│  │         ↓                          │              │
+│  │  2-3 variante curate să aleagă    │              │
+│  └────────────────────────────────────┘              │
+│                                                       │
+│  Pacientul NU vede toate programele simultan         │
+└──────────────────────────────────────────────────────┘</div>
+                        <div class="role">
+                            <strong>Rol:</strong> Conversie - fiecare program are landing page optimizată pentru acel avatar specific.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistem Mesaje -->
+                <div class="component-card">
+                    <div class="component-header">
+                        <h3>1.7 Sistem Mesaje Personalizate</h3>
+                        <div class="version">Email Marketing AI</div>
+                    </div>
+                    <div class="component-content">
+                        <div class="ascii-box">┌─────────────────────────────────────────┐
+│    📧 APP MESAJE PERSONALIZATE          │
+│         Email Marketing AI              │
+├─────────────────────────────────────────┤
+│                                         │
+│  Depășește Template-urile Clasice      │
+│                                         │
+│  ┌────────────────────────────┐         │
+│  │  AI Personalizare Avansată │         │
+│  ├────────────────────────────┤         │
+│  │ • Nume, istoric, preferințe│         │
+│  │ • Comportament site         │         │
+│  │ • Etapă în journey          │         │
+│  │ • Rezultate obținute        │         │
+│  │ • Provocări individuale     │         │
+│  └────────────────────────────┘         │
+│                                         │
+│  "Știm TOT despre ei" → mesaje         │
+│  care par scrise manual pentru         │
+│  fiecare pacient                       │
+│                                         │
+│  Bazat pe: One Single Source of Truth  │
+└─────────────────────────────────────────┘</div>
+                        <div class="role">
+                            <strong>Rol:</strong> Retenție și engagement prin comunicare hyper-personalizată la scară.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integrated System -->
+        <div class="integrated-system">
+            <h2 class="section-title">VIZUALIZAREA COMUNĂ - ECOSISTEMUL INTEGRAT</h2>
+
+            <div class="system-diagram">════════════════════════════════════════════════════════════════════
+║   ECOSISTEMUL SOFTWARE KILOSTOP - 2024-2025    ║
+════════════════════════════════════════════════════════════════════
+
+
+┌────────────────────────── FRONT-END (Pacient/Prospect) ──────────────────────────┐
+│                                                                                   │
+│                                                                                   │
+│   ┌──────────────────┐              ┌───────────────────┐                        │
+│   │  KILOSTOP.RO     │              │  LP.KILOSTOP.RO   │                        │
+│   │  Website Modern  │◄────────────►│  Landing Pages    │                        │
+│   │  (Revamp)        │  Direcționare│  • Prediabet      │                        │
+│   └─────────┬────────┘              │  • Amalia Medical │                        │
+│             │                       │  • Elena Veg      │                        │
+│             │                       └──────────┬────────┘                        │
+│             │                                  │                                 │
+│             │         ┌─────────────────┐      │                                 │
+│             └────────►│  CHESTIONAR     │◄─────┘                                 │
+│                       │  ROUTER         │                                        │
+│                       │  (2-3 Q simple) │                                        │
+│                       └────────┬────────┘                                        │
+│                                │                                                 │
+│                                ▼                                                 │
+│                  ┌──────────────────────────────┐                                │
+│                  │   PORTAL.KILOSTOP.RO         │                                │
+│                  │   ════════════════════       │                                │
+│                  │   • Quiz Slabit (Noom-like)  │                                │
+│                  │   • Chestionare 4O           │                                │
+│                  │   • Quiz Programe            │                                │
+│                  │   • Evaluări Medicale        │                                │
+│                  │                              │                                │
+│                  │   [One place for all forms]  │                                │
+│                  └───────────┬──────────────────┘                                │
+│                              │                                                   │
+│                              │ Date vizibile per user                            │
+│                              │                                                   │
+│                              ▼                                                   │
+│                  ┌──────────────────────────────┐                                │
+│                  │    📱 APP MOBILĂ KILOSTOP    │                                │
+│                  │    ═══════════════════════   │                                │
+│                  │    • Jurnal Alimentar        │                                │
+│                  │    • Track zilnic            │                                │
+│                  │    • Quiz-uri (opțional)     │                                │
+│                  │    • Lead Generation         │                                │
+│                  └──────────┬───────────────────┘                                │
+│                             │                                                    │
+└─────────────────────────────┼────────────────────────────────────────────────────┘
+                              │
+                              │ Conectare Bidirectională
+                              │
+┌─────────────────────────────┼────── BACK-END (Medicii & Admin) ─────────────────┐
+│                             │                                                    │
+│                             ▼                                                    │
+│            ╔════════════════════════════════════════════╗                        │
+│            ║      KILOSOFT - INIMA SISTEMULUI          ║                        │
+│            ╠════════════════════════════════════════════╣                        │
+│            ║                                            ║                        │
+│            ║  v1.5: Platformă nouă, modernă            ║                        │
+│            ║  ────────────────────────────             ║                        │
+│            ║  v2.0: • Rapoarte noi, corecte           ║                        │
+│            ║        • Diete în Kilosoft (nu Word)     ║                        │
+│            ║        • Atașare analize & documente     ║                        │
+│            ║                                            ║                        │
+│            ║  v3.0: 🤖 AGENȚI COPILOT AI               ║                        │
+│            ║        • Rezumat analize                  ║                        │
+│            ║        • Tracking evoluție pacient        ║                        │
+│            ║        • Sugestii implementare            ║                        │
+│            ║        → Medicul decide, AI asistă        ║                        │
+│            ║                                            ║                        │
+│            ║  [Fișa pacient completă cu istoric]       ║                        │
+│            ╚════════════════╦═══════════════════════════╝                        │
+│                             ║                                                    │
+│                             ║ Sincronizare                                       │
+│                             ║                                                    │
+│                             ▼                                                    │
+│            ┌────────────────────────────────────┐                                │
+│            │     ADA.KILOSTOP.RO                │                                │
+│            │     ══════════════════             │                                │
+│            │                                    │                                │
+│            │  v1.5: Platformă nouă (80%)       │                                │
+│            │  v2.0: Curățenie date              │                                │
+│            │                                    │                                │
+│            │  ╔══════════════════════════╗      │                                │
+│            │  ║  DATABASE ALIMENTE       ║      │                                │
+│            │  ║  ═══════════════════     ║      │
+│            │  ║  • Macronutrienți        ║      │
+│            │  ║  • Micronutrienți        ║      │
+│            │  ║  • Alimente compuse      ║      │
+│            │  ║                          ║      │
+│            │  ║  [Single Source Truth]   ║      │
+│            │  ╚══════════════════════════╝      │
+│            └────────┬───────────────────────────┘                                │
+│                     │                                                            │
+│                     │ Sursă date                                                 │
+│                     │                                                            │
+│                     └──────────────────┐                                         │
+│                                        │                                         │
+│                                        ▼                                         │
+│            ┌────────────────────────────────────┐                                │
+│            │  📧 SISTEM MESAJE PERSONALIZATE   │                                │
+│            │  ═══════════════════════════════   │                                │
+│            │                                    │                                │
+│            │  Colectează din toate sistemele:   │                                │
+│            │  • Date Portal (quiz-uri)          │                                │
+│            │  • Date Kilosoft (evoluție)        │                                │
+│            │  • Date App (comportament)         │                                │
+│            │  • Istoric complet                 │                                │
+│            │                                    │                                │
+│            │  → Generare mesaje AI              │                                │
+│            │    hyper-personalizate             │                                │
+│            │                                    │                                │
+│            │  Trimite către:                    │                                │
+│            │  • 33.000 abonați newsletter      │                                │
+│            │  • 14.000 pacienți vechi          │                                │
+│            │  • Prospecți din funnel           │                                │
+│            └────────────────────────────────────┘                                │
+│                                                                                   │
+└───────────────────────────────────────────────────────────────────────────────────┘</div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="conclusion">
+            <h2>CONCLUZIE - VIZIUNEA INTEGRATĂ</h2>
+
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">
+                Ecosistemul software Kilostop 2024-2025 reprezintă o <strong>transformare de la puncte izolate de contact la o experiență integrată completă</strong>:
+            </p>
+
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h3>ÎNAINTE</h3>
+                    <ul>
+                        <li>Google Forms (separat)</li>
+                        <li>Word pentru diete</li>
+                        <li>ScoreApp pentru 4O</li>
+                        <li>Typeform pentru quiz</li>
+                        <li>Template-uri email</li>
+                        <li>Fără tracking zilnic</li>
+                        <li>Medici fac manual totul</li>
+                        <li>Date în sisteme separate</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-item">
+                    <h3>DUPĂ</h3>
+                    <ul>
+                        <li>Portal unificat</li>
+                        <li>Diete în Kilosoft</li>
+                        <li>Tot în Portal</li>
+                        <li>Tot în Portal</li>
+                        <li>AI personalizare</li>
+                        <li>App mobilă</li>
+                        <li>AI Copilot asistat</li>
+                        <li>One source of truth</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="final-result">
+                <strong>Rezultat final:</strong> Un ecosistem care <strong>scalează, automatizează, personalizează</strong> - permițând echipei Kilostop să servească 35.000 de pacienți cu aceeași grijă cu care serviți primii 24.000.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>*Documentație creată pentru echipa Kilostop - Octombrie 2024*</p>
+            <p class="tagline">"Spre o lume în care oamenii sunt sănătoși, supli și fericiți" 🎯</p>
+        </div>
+    </div>
+</body>
+</html>
